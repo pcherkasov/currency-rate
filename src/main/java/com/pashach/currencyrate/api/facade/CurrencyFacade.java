@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -36,5 +38,9 @@ public class CurrencyFacade {
     );
   }
 
-
+  public List<CurrencyInfoResponse> getAllCurrencies() {
+    return currencyService.findAll().stream()
+        .map(currency -> new CurrencyInfoResponse(currency.getCode(), currency.getFullName()))
+        .toList();
+  }
 }
