@@ -1,10 +1,15 @@
 # Getting Started
-
-## Local start:
+## Local
 ### Preinstall:
 1. Docker, Docker Compose; (Docker Desktop for Windows);
 2. Java 21 (For native env start);
-
+### Environment:
+1. SignUp on [currencyapi.com](https://currencyapi.com/);
+2. Create API Key. Use Link: [api keys](https://app.currencyapi.com/api-keys);
+3. Add api key as environment variable with name:
+```
+CURRENCY_CLIENT_API_KEY
+```
 ### How to start:
 1. Open terminal in the root folder of the repo (folder with this README.md file);
 2. Run the command:

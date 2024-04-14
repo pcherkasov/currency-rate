@@ -5,4 +5,33 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd">
 
+  <changeSet id="1" author="pashach">
+    <createTable tableName="currency">
+      <column name="id" type="bigint" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="code" type="varchar(10)">
+        <constraints unique="true" nullable="false"/>
+      </column>
+      <column name="full_name" type="varchar(1023)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="2" author="pashach">
+    <createTable tableName="currency_exchange_history">
+      <column name="id" type="bigint" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="currency_id" type="bigint">
+        <constraints foreignKeyName="fk_currency_history_currency"
+                     nullable="false"
+                     referencedTableName="currency"
+                     referencedColumnNames="id"/>
+      </column>
+      <column name="exchange_rates" type="JSONB"/>
+      <column name="created" type="datetime" defaultValueComputed="now()">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
 </databaseChangeLog>

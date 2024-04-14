@@ -4,7 +4,7 @@ server:
 
 feign:
   url:
-    currency-api:
+    currency-api-key: ${CURRENCY_CLIENT_API_KEY:}
 
 spring:
   datasource:
@@ -30,3 +30,6 @@ spring:
     open-in-view: false
   application:
     name: currency-rate
+logging:
+  level:
+    root: info
