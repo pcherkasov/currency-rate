@@ -18,18 +18,18 @@
   </changeSet>
 
   <changeSet id="2" author="pashach">
-    <createTable tableName="currency_exchange_history">
+    <createTable tableName="exchange_rate_history">
       <column name="id" type="bigint" autoIncrement="true">
         <constraints primaryKey="true" nullable="false"/>
       </column>
-      <column name="currency_id" type="bigint">
-        <constraints foreignKeyName="fk_currency_history_currency"
+      <column name="base_currency_id" type="bigint">
+        <constraints foreignKeyName="fk_exchange_rate_history_currency"
                      nullable="false"
                      referencedTableName="currency"
                      referencedColumnNames="id"/>
       </column>
-      <column name="exchange_rates" type="JSONB"/>
-      <column name="created" type="datetime" defaultValueComputed="now()">
+      <column name="rate" type="JSONB"/>
+      <column name="timestamp" type="datetime" defaultValueComputed="now()">
         <constraints nullable="false"/>
       </column>
     </createTable>

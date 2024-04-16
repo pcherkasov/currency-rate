@@ -16,7 +16,7 @@ public class CurrencyService {
 
   private final CurrencyRepository currencyRepository;
 
-  public Currency save(Currency currency) {
+  public Currency save(final Currency currency) {
     try {
       return currencyRepository.save(currency);
     } catch (Exception e) {

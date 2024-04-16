@@ -16,8 +16,8 @@ import java.util.Map;
 public interface CurrencyApiClient {
 
   @GetMapping("/currencies")
-  Map<String, Map<String,CurrencyInfoResponse>> getCurrencyByCode(@RequestParam("currencies") String code);
+  Map<String, Map<String, CurrencyInfoResponse>> getCurrencyByCode(@RequestParam("currencies") final String code);
 
   @GetMapping("/latest")
-  Map<String, LatestRatesResponse> getLatestRates(@RequestParam("base_currency") String baseCurrency);
+  Map<String, LatestRatesResponse> getLatestRates(@RequestParam("base_currency") final String baseCurrency);
 }
